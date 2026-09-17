@@ -1,39 +1,16 @@
 export default function About() {
+  const skills=["JavaScript","Tailwind CSS","Next.js","TypeScript"];
   return (
-    <div className="max-w-6xl mx-auto px-4 py-16">
-      <h1 className="text-4xl font-bold mb-8">About Us</h1>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Left - Content */}
-        <div>
-          <h2 className="text-2xl font-bold mb-4">Humara Mission</h2>
-          <p className="text-gray-600 mb-4">
-            Hum modern web technologies use karke fast aur beautiful websites banate hain.
-          </p>
-          <p className="text-gray-600 mb-4">
-            Humara goal hai har client ko best quality dena.
-          </p>
-          <div className="flex gap-4">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600">50+</div>
-              <div className="text-gray-600">Projects</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-green-600">30+</div>
-              <div className="text-gray-600">Clients</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-purple-600">5+</div>
-              <div className="text-gray-600">Years</div>
-            </div>
+    <div className="max-w-4xl mx-auto p-8">
+      <h1 className="text-4xl font-bold mb-4">About Us</h1>
+      <p className="text-lg text-gray-600 mb-6">m ek developer hun jo Nextjs seekh rhi hn.  </p>
+        <h2 className="text-2xl font-bold mb-4">Skills</h2>
+          <ul className="list-disc list-inside">
+          {skills.map((skill,index)=>(
+            <li key={index}  className="text-gray-700">{skill}</li>
+
+          ))}
+          </ul>
           </div>
-        </div>
-        
-        {/* Right - Image Placeholder */}
-        <div className="bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg h-64 md:h-auto">
-          {/* Image placeholder */}
-        </div>
-      </div>
-    </div>
   );
 }
