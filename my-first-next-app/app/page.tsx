@@ -1,39 +1,42 @@
+import Counter from "./components/Counter";
+import ContactForm from "./components/ContactForm";
 
-import Link from "next/link";
 export default function Home() {
-  return (
-    <div>
-      
+  const features = [
+    { title: "Fast", icon: "🚀", description: "Lightning fast performance" },
+    { title: "Secure", icon: "🔒", description: "Enterprise level security" },
+    { title: "Easy", icon: "✨", description: "Simple to use" },
+  ];
 
-      {/* Hero section*/}
-      <div className="bg-gradient-to-r from-blue-500 to-green-500 text-white py-20">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-           <h1 className="text-5xl font-bold mb-4">Welcome to MySite</h1>
-             <p className="text-xl mb-8">Learning Next.js with Tailwind CSS</p>
-             <Link href="/about" className="bg-white text-blue-500 px-8 py-3 rounded-lg font-bold hover:bg-gray-100">
-            About Us
-            </Link>
+  return (
+    <div className="max-w-6xl mx-auto p-8">
+      <h1 className="text-4xl font-bold mb-8 text-center">
+        Server + Client Components
+      </h1>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold mb-6">Features (Server)</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {features.map((feature, index) => (
+            <div key={index} className="bg-white p-6 rounded-lg shadow-md text-center">
+              <div className="text-4xl mb-4">{feature.icon}</div>
+              <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
+              <p className="text-gray-600">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold mb-6">Interactive (Client)</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Counter />
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-xl font-bold mb-4">Contact Form</h3>
+            <ContactForm />
           </div>
         </div>
-      {/*features*/}
-      <div className="max-w-6xl mx-auto px-4 py-16">
-        <h2 className="text-3xl text-center font-bold mb-12">Our Features</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-bold text-gray-700 mb-4">Fast</h3>
-            <p className="text-gray-600">Lightning Fast Performance</p>
-            </div>
-            <div className="text-center bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold text-gray-700 mb-4">Secure</h3>
-              <p className="text-gray-600">Enterprise level security</p>
-            </div>
-            <div className="text-center bg-white p-6 rounded=lg shadow-md">
-              <h3 className="text-xl font-bold text-gray-700 mb-4">Responsive</h3>
-              <p className="text-gray-600">Works on all devices</p>
-            </div>
-        </div>
-      </div>
-     </div>
-    
+      </section>
+    </div>
   );
 }
